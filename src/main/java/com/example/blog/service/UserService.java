@@ -15,9 +15,9 @@ public class UserService {
     private static int usersCount = 3;
 
     static {
-        users.add(new User(1, "jihong", new Date()));
-        users.add(new User(2, "boseock", new Date()));
-        users.add(new User(3, "handsome", new Date()));
+        users.add(new User(1, "jihong", new Date(),"jihong@naver.com"));
+        users.add(new User(2, "boseock", new Date(),"boseock@naver.com"));
+        users.add(new User(3, "handsome", new Date(),"handsome@naver.com"));
     }
 
     public List<User> findAll() {
@@ -29,6 +29,7 @@ public class UserService {
         if (user.getId() == null) {
             user.setId(++usersCount);
             user.setJoinDate(new Date());
+
         }
         users.add(user);
 
@@ -82,6 +83,7 @@ public class UserService {
                 // update user_table set name=? where id=? -> list update
                 // ...
                 dbuser.setName(paramUser.getName());
+                dbuser.setEmail(paramUser.getEmail());
                 return dbuser;
             }
         }
