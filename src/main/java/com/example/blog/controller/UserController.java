@@ -50,4 +50,15 @@ public class UserController {
             throw new UserNotFoundException("삭제할 id가 없다");
         }
     }
+
+    @PutMapping("/users/{id}")
+    public User modifyUser(@PathVariable("id") int id,
+                           @RequestBody User user) {
+        user.setId(id);
+        User modifiedUser = service.modifiedUser(user);
+        if (modifiedUser == null) {
+            throw new UserNotFoundException("삭제할 id가 없다");
+        }
+        return modifiedUser;
+    }
 }

@@ -73,8 +73,20 @@ public class UserService {
         }*/
         return null;
     }
-
-    //4. 수정 ->
+    //4. 수정 -> modify
+    public User modifiedUser(User paramUser) {
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            User dbuser = iterator.next();
+            if (dbuser.getId() == paramUser.getId()) {
+                // update user_table set name=? where id=? -> list update
+                // ...
+                dbuser.setName(paramUser.getName());
+                return dbuser;
+            }
+        }
+        return null;
+    }
 }
 
 
