@@ -1,2 +1,15 @@
 server:
   port: 8088
+spring:
+  messages:
+    basename: messages
+
+  mvc:
+    view:
+      prefix: /WEP-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /resources/**
+
+    devtools:
+      livereload:
+        enabled: true
